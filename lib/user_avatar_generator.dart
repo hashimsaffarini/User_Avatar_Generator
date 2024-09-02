@@ -62,9 +62,7 @@ class UserAvatarGenerator extends StatelessWidget {
   // Function to determine the background image based on the selected style
   String? _getBackgroundImage() {
     final backgroundImages = {
-      AvatarBackgroundStyle.style1: 'assets/images/back1.jpg',
-      AvatarBackgroundStyle.style2: 'assets/images/back1.jpg',
-      AvatarBackgroundStyle.style3: 'assets/images/back1.jpg',
+      AvatarBackgroundStyle.style1: 'lib/assets/images/back1.jpg',
     };
 
     return backgroundStyle != null
@@ -102,7 +100,10 @@ class UserAvatarGenerator extends StatelessWidget {
         border: border,
         image: _getBackgroundImage() != null
             ? DecorationImage(
-                image: AssetImage(_getBackgroundImage()!),
+                image: AssetImage(
+                  _getBackgroundImage()!,
+                   package: 'user_avatar_generator',
+                ),
                 fit: BoxFit.cover,
               )
             : null,
