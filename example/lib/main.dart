@@ -28,21 +28,18 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.amber,
         title: const Text('User Avatar Generator'),
       ),
-      body: Column(
+      body: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: UserAvatarGenerator(
-              generatedText: 'United States of America',
-              avatarHeight: 200.0,
-              avatarWidth: 100.0,
-              numberOfCharacters: 3,
-              isUpperCase: false,
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              backgroundStyle: AvatarBackgroundStyle.style1,
-              textStyle: const TextStyle(fontWeight: FontWeight.bold),
-              border: Border.all(color: Colors.black, width: 2.0),
+              text: 'United States of America',
+              fontStyle: AvatarFontStyles.font1,
+              avatarSize: 80,
+              textStyle: TextStyle(
+                fontSize: 50,
+              ),
+              backgroundGradientEnum: AvatarBackgroundGradient.bluePurple,
             ),
           ),
         ],

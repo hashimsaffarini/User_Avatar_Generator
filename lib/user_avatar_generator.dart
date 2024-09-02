@@ -1,124 +1,112 @@
 library user_avatar_generator;
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:user_avatar_generator/core/imports.dart';
 
-enum AvatarBackgroundStyle {
-  style1,
-  style2,
-  style3,
-}
+export 'package:user_avatar_generator/core/imports.dart';
 
 class UserAvatarGenerator extends StatelessWidget {
-  final String? generatedText; // The text to be generated (e.g., initials)
-  final String? readyText; // Predefined text that can be used directly
-  final double? avatarHeight; // Height of the avatar widget
-  final double? avatarWidth; // Width of the avatar widget
-  final AvatarBackgroundStyle? backgroundStyle; // Enum for background style
-  final Color? backgroundColor; // Background color of the avatar
-  final String? backgroundImagePath; // Path to the background image
-  final Color textColor; // Color of the text inside the avatar
-  final TextStyle? textStyle; // Custom text style for the avatar text
-  final BoxShape avatarShape; // Shape of the avatar (e.g., circle or rectangle)
-  final BoxBorder? border; // Border for the avatar
-  final double? textSize; // Size of the text inside the avatar
-  final Alignment textAlignment; // Alignment of the text within the avatar
-  final bool
-      isUpperCase; // Whether the initials should be uppercase or lowercase
-  final int
-      numberOfCharacters; // Number of characters to include in the initials
+  // Avatar appearance
+  final double? avatarSize;
+  final BoxShape avatarShape;
+  final BorderRadius? borderRadius;
+  final BoxBorder? border;
+  final Color backgroundColor;
+  final AvatarBackgroundGradient?
+      backgroundGradientEnum; // New: Enum for gradient
+  final String? backgroundImage;
+
+  // Text appearance
+  final String? initials;
+  final String? text;
+  final TextStyle? textStyle;
+  final Alignment textAlignment;
+  final bool isUpperCase;
+  final int numberOfCharacters;
+  final AvatarFontStyles? fontStyle;
+
+  // Interaction
+  final void Function()? onTap;
 
   const UserAvatarGenerator({
     super.key,
-    this.generatedText,
-    this.readyText,
-    this.avatarHeight,
-    this.avatarWidth,
-    this.backgroundStyle, // Selected background style
-    this.backgroundColor = Colors.blue,
-    this.backgroundImagePath,
-    this.textColor = Colors.white,
-    this.textStyle,
+    this.avatarSize,
     this.avatarShape = BoxShape.circle,
+    this.borderRadius,
     this.border,
-    this.textSize,
+    this.backgroundColor = Colors.blue,
+    this.backgroundGradientEnum,
+    this.backgroundImage,
+    this.initials,
+    this.text,
+    this.textStyle,
     this.textAlignment = Alignment.center,
     this.isUpperCase = true,
     this.numberOfCharacters = 2,
+    this.onTap,
+    this.fontStyle,
   });
-
-  // Function to generate initials from the full name
-  String generateInitials(String fullName,
-      {bool isUpperCase = true, int numberOfCharacters = 2}) {
-    List<String> names = fullName.trim().split(RegExp(r'\s+'));
-    String initials = names.map((name) => name[0]).join();
-
-    if (initials.length > numberOfCharacters) {
-      initials = initials.substring(0, numberOfCharacters);
-    }
-
-    return isUpperCase ? initials.toUpperCase() : initials.toLowerCase();
-  }
-
-  // Function to determine the background image based on the selected style
-  String? _getBackgroundImage() {
-    final backgroundImages = {
-      AvatarBackgroundStyle.style1: 'lib/assets/images/back1.jpg',
-    };
-
-    return backgroundStyle != null
-        ? backgroundImages[backgroundStyle]
-        : backgroundImagePath;
-  }
-
-  // Function to get the text to display
-  String _getText() {
-    if (readyText != null) {
-      return readyText!;
-    } else if (generatedText != null) {
-      return generateInitials(generatedText!,
-          isUpperCase: isUpperCase, numberOfCharacters: numberOfCharacters);
-    } else {
-      return '';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-
-    final double calculatedAvatarHeight = avatarHeight ?? screenHeight * 0.1;
-    final double calculatedAvatarWidth = avatarWidth ?? screenWidth * 0.2;
-    final double calculatedTextSize = textSize ?? calculatedAvatarHeight * 0.4;
-
-    return Container(
-      width: calculatedAvatarWidth,
-      height: calculatedAvatarHeight,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        shape: avatarShape,
-        border: border,
-        image: _getBackgroundImage() != null
-            ? DecorationImage(
-                image: AssetImage(
-                  _getBackgroundImage()!,
-                   package: 'user_avatar_generator',
-                ),
-                fit: BoxFit.cover,
-              )
-            : null,
-      ),
-      child: Align(
-        alignment: textAlignment,
-        child: Text(
-          _getText(),
-          style: textStyle ??
-              TextStyle(
-                color: textColor,
-                fontSize: calculatedTextSize,
-              ),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: avatarSize ?? MediaQuery.of(context).size.width * 0.2,
+        height: avatarSize ?? MediaQuery.of(context).size.height * 0.1,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          gradient:
+              backgroundGradientEnum?.gradient, // Use the enum to get gradient
+          shape: avatarShape,
+          border: border,
+          image: backgroundImage != null
+              ? DecorationImage(
+                  image: AssetImage(
+                    backgroundImage!,
+                    package: 'user_avatar_generator',
+                  ),
+                  fit: BoxFit.cover,
+                )
+              : null,
+        ),
+        child: Align(
+          alignment: textAlignment,
+          child: Text(
+            _getText(),
+            style: _getTextStyle(),
+          ),
         ),
       ),
+    );
+  }
+
+  String _getText() {
+    return initials ?? _generateInitials(text ?? '');
+  }
+
+  String _generateInitials(String fullName) {
+    List<String> names = fullName.trim().split(RegExp(r'\s+'));
+    String initials = names.map((name) => name[0]).join();
+    return isUpperCase
+        ? initials.substring(0, numberOfCharacters).toUpperCase()
+        : initials.substring(0, numberOfCharacters).toLowerCase();
+  }
+
+  TextStyle _getTextStyle() {
+    final fontStyles = {
+      AvatarFontStyles.font1: GoogleFonts.protestGuerrilla(),
+      AvatarFontStyles.font2: GoogleFonts.roboto(),
+      AvatarFontStyles.font3: GoogleFonts.robotoMono(),
+    };
+
+    return (textStyle ??
+            fontStyles[fontStyle] ??
+            GoogleFonts.roboto().copyWith(fontSize: avatarSize ?? 20.0))
+        .copyWith(
+      fontSize: avatarSize != null ? avatarSize! * 0.4 : 20.0,
+      color: textStyle?.color ?? Colors.white,
     );
   }
 }
