@@ -9,11 +9,13 @@ String generateTextBasedOnType(String fullName,
     ShortcutGenerationType shortcutGenerationType, isUpperCase) {
   switch (shortcutGenerationType) {
     case ShortcutGenerationType.initials:
-      return _generateInitials(fullName);
+      return _generateInitials(fullName, isUpperCase: isUpperCase);
+
     case ShortcutGenerationType.uppercaseOnly:
       return _generateUppercaseLetters(fullName);
     case ShortcutGenerationType.firstAndLast:
-      return _generateFirstAndLastLetters(fullName);
+      return _generateFirstAndLastLetters(fullName, isUpperCase: isUpperCase);
+
     case ShortcutGenerationType.withSymbols:
       return _generateWithNumbersAndSymbols(fullName, isUpperCase: isUpperCase);
 
@@ -22,19 +24,21 @@ String generateTextBasedOnType(String fullName,
   }
 }
 
-String _generateInitials(String fullName) {
+String _generateInitials(String fullName, {bool isUpperCase = true}) {
   List<String> names = fullName.trim().split(RegExp(r'\s+'));
   String initials = names.map((name) => name[0]).join();
-  return initials.toUpperCase();
+  return isUpperCase ? initials.toUpperCase() : initials.toLowerCase();
 }
 
 String _generateUppercaseLetters(String fullName) {
   return RegExp(r'[A-Z]').allMatches(fullName).map((e) => e.group(0)).join();
 }
 
-String _generateFirstAndLastLetters(String fullName) {
+String _generateFirstAndLastLetters(String fullName,
+    {bool isUpperCase = true}) {
   List<String> names = fullName.trim().split(RegExp(r'\s+'));
-  return "${names.first[0]}${names.last[0]}".toUpperCase();
+  String initials = "${names.first[0]}${names.last[0]}";
+  return isUpperCase ? initials.toUpperCase() : initials.toLowerCase();
 }
 
 String _generateWithNumbersAndSymbols(

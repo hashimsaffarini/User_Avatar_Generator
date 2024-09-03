@@ -25,18 +25,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.amber,
-        title: const Text('User Avatar Generator'),
+        backgroundColor: const Color(0xFFC8A8E9),
+        title: const Text(
+          'User Avatar Generator 🎨',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 26,
+          ),
+        ),
       ),
       body: const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: UserAvatarGenerator(
-              text: 'hashim saffarini',
+              text: 'Free Palestine',
               shortcutGenerationType: ShortcutGenerationType.initials,
+              isUpperCase: true,
+              avatarSize: 100,
+              avatarBackgroundGradient: AvatarBackgroundGradient.sunsetPastels,
+              fontStyle: AvatarFontStyles.concertOne,
               textStyle: TextStyle(
-                color: Colors.white,
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
