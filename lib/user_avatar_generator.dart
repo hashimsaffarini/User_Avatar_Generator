@@ -2,9 +2,9 @@ library user_avatar_generator;
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:user_avatar_generator/core/imports.dart';
+import 'package:user_avatar_generator/core/export_paths.dart';
 
-export 'package:user_avatar_generator/core/imports.dart';
+export 'package:user_avatar_generator/core/export_paths.dart';
 
 class UserAvatarGenerator extends StatelessWidget {
   /// [Avatar] appearance
