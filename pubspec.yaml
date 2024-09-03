@@ -1,6 +1,6 @@
 name: user_avatar_generator
 description: "Generates text-based avatars using initials, symbolic text, and more. Ideal for personalized user representations with rich customization."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/hashimsaffarini/User_Avatar_Generator.git
 
 environment:
