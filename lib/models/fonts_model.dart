@@ -1,5 +1,8 @@
 enum AvatarFontStyles {
-  font1,
-  font2,
-  font3,
+  protestGuerrilla,
+  pacifico,
+  anton,
+  concertOne,
+  bangers,
+  chivo,
 }

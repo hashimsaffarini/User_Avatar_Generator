@@ -33,13 +33,11 @@ class HomePage extends StatelessWidget {
         children: [
           Center(
             child: UserAvatarGenerator(
-              text: 'United States of America',
-              fontStyle: AvatarFontStyles.font1,
-              avatarSize: 80,
+              text: 'hashim saffarini',
+              shortcutGenerationType: ShortcutGenerationType.initials,
               textStyle: TextStyle(
-                fontSize: 50,
+                color: Colors.white,
               ),
-              backgroundGradientEnum: AvatarBackgroundGradient.bluePurple,
             ),
           ),
         ],
