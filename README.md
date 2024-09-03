@@ -25,7 +25,7 @@ The **User Avatar Generator** package allows you to efficiently create avatar te
 
 ## 📸 ScreenShot
 
-![Simulator Screenshot - iPhone 15 Pro Max - 2024-09-03 at 15 59 35](https://github.com/user-attachments/assets/df7aca57-d2c1-44de-a1aa-026fb02b04cb)
+[<img src="https://github.com/hashimsaffarini/User_Avatar_Generator/blob/main/lib/assets/images/screen.png" width="400" />](https://github.com/hashimsaffarini/User_Avatar_Generator/blob/main/lib/assets/images/screen.png)
 
 ## 📦 Installation
 
