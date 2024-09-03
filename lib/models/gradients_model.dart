@@ -1,14 +1,28 @@
 import 'package:flutter/material.dart';
 
+/// Enum representing different background gradient styles for the avatar.
 enum AvatarBackgroundGradient {
+  /// A gradient with pastel sunset colors.
   sunsetPastels,
+
+  /// A gradient with deep ocean colors.
   oceanDepths,
+
+  /// A gradient with tropical sunset colors.
   tropicalSunset,
+
+  /// A gradient with various shades of green representing a forest.
   forestHues,
+
+  /// A gradient with warm, horizon-like colors.
   warmHorizon,
 }
 
 extension AvatarBackgroundGradientExtension on AvatarBackgroundGradient {
+  /// Returns the [Gradient] associated with the selected [AvatarBackgroundGradient].
+  ///
+  /// The gradient is defined by a list of colors and stops to create a smooth transition
+  /// from one color to another. The gradient direction is from the bottom left to the top right.
   Gradient get gradient {
     switch (this) {
       case AvatarBackgroundGradient.sunsetPastels:

@@ -6,32 +6,67 @@ import 'package:user_avatar_generator/core/export_paths.dart';
 
 export 'package:user_avatar_generator/core/export_paths.dart';
 
+/// A widget for generating user avatars with customizable appearance and interactions.
+///
+/// This widget supports various options for avatar size, shape, background, text style,
+/// and more. It also allows for interactive avatars with tap handling.
 class UserAvatarGenerator extends StatelessWidget {
-  /// [Avatar] appearance
+  /// The size of the avatar. If `null`, defaults to a percentage of the screen width or height.
   final double? avatarSize;
+
+  /// The shape of the avatar. Defaults to [BoxShape.circle].
   final BoxShape avatarShape;
+
+  /// The border radius of the avatar if the shape is [BoxShape.rectangle]. Defaults to `null`.
   final BorderRadius? borderRadius;
+
+  /// The border around the avatar. Defaults to `null`.
   final BoxBorder? border;
+
+  /// The background color of the avatar. Defaults to `null`.
   final Color? backgroundColor;
+
+  /// The gradient background of the avatar. Defaults to `null`.
   final AvatarBackgroundGradient? avatarBackgroundGradient;
+
+  /// The background image of the avatar. Defaults to `null`.
   final ImageProvider? backgroundImage;
+
+  /// A list of shadows to apply to the avatar. Defaults to a standard shadow if `null`.
   final List<BoxShadow>? boxShadow;
 
-  /// [Text] appearance
+  /// The initials to display on the avatar. If `null`, [text] will be used instead.
   final String? initials;
+
+  /// The text to display on the avatar. Used if [initials] is `null`.
   final String? text;
+
+  /// The style of the text on the avatar. Defaults to `null`.
   final TextStyle? textStyle;
+
+  /// The alignment of the text within the avatar. Defaults to [Alignment.center].
   final Alignment textAlignment;
+
+  /// Whether the text should be in uppercase. Defaults to `true`.
   final bool isUpperCase;
+
+  /// The number of characters to display from the text. Defaults to `2`.
   final int numberOfCharacters;
+
+  /// The font style to use for the text. Defaults to `null`.
   final AvatarFontStyles? fontStyle;
 
-  /// [Interaction]
+  /// Callback function to execute when the avatar is tapped. Defaults to `null`.
   final void Function()? onTap;
 
-  /// [Shortcut] generation options
+  /// The type of shortcut generation for the text. Defaults to [ShortcutGenerationType.initials].
   final ShortcutGenerationType shortcutGenerationType;
 
+  /// Creates a [UserAvatarGenerator] with the given properties.
+  ///
+  /// [avatarSize], [avatarShape], [borderRadius], [border], [backgroundColor], [avatarBackgroundGradient],
+  /// [backgroundImage], [boxShadow], [initials], [text], [textStyle], [textAlignment], [isUpperCase],
+  /// [numberOfCharacters], [onTap], [fontStyle], and [shortcutGenerationType] can be customized.
   const UserAvatarGenerator({
     super.key,
     this.avatarSize,
@@ -95,6 +130,10 @@ class UserAvatarGenerator extends StatelessWidget {
     );
   }
 
+  /// Determines the text to display on the avatar.
+  ///
+  /// If [initials] is provided, it will be used. Otherwise, [text] will be used
+  /// with the specified [shortcutGenerationType] and [isUpperCase].
   String _getText() {
     if (initials != null) {
       return initials!;
@@ -108,6 +147,10 @@ class UserAvatarGenerator extends StatelessWidget {
     return '';
   }
 
+  /// Calculates the text style to be used on the avatar.
+  ///
+  /// The style depends on [textStyle], [fontStyle], and the base font size derived from [avatarSize]
+  /// or the screen size.
   TextStyle _getTextStyle(Size size) {
     double baseFontSize =
         avatarSize != null ? avatarSize! * 0.4 : size.shortestSide * 0.075;
