@@ -1,3 +1,8 @@
+## 0.0.4
+
+* Add comments in classes and files 
+* fix github readme 
+
 ## 0.0.3
 
 * Fixed screenshot bug
