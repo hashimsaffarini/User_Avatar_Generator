@@ -39,15 +39,17 @@ class HomePage extends StatelessWidget {
         children: [
           Center(
             child: UserAvatarGenerator(
-              text: 'Free Palestine',
-              shortcutGenerationType: ShortcutGenerationType.initials,
-              isUpperCase: true,
-              avatarSize: 100,
-              avatarBackgroundGradient: AvatarBackgroundGradient.sunsetPastels,
-              fontStyle: AvatarFontStyles.concertOne,
+              text: 'Free Palestine', // The text to display in the avatar
+              shortcutGenerationType: ShortcutGenerationType
+                  .initials, // Method for generating avatar text
+              isUpperCase: true, // Convert text to uppercase
+              avatarSize: 100, // Size of the avatar
+              avatarBackgroundGradient: AvatarBackgroundGradient
+                  .sunsetPastels, // Gradient background for the avatar
+              fontStyle: AvatarFontStyles.concertOne, // Font style for the text
               textStyle: TextStyle(
-                fontSize: 60,
-                fontWeight: FontWeight.bold,
+                fontSize: 60, // Font size for the avatar text
+                fontWeight: FontWeight.bold, // Font weight for the avatar text
               ),
             ),
           ),
