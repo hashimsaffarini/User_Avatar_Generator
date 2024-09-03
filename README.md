@@ -33,7 +33,7 @@ Add the following to your `pubspec.yaml` under dependencies:
 
 ```yaml
 dependencies:
-  user_avatar_generator: ^0.0.1
+  user_avatar_generator: ^0.0.4
 ```
 ## 📚 Usage
 
