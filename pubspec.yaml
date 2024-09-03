@@ -1,6 +1,6 @@
 name: user_avatar_generator
-description: "package that allows you to generate text-based avatars using various methods like initials, symbolic text, and more. This makes it ideal for apps needing personalized and unique user representations, offering easy integration and rich customization options."
-version: 0.0.1
+description: "Generates text-based avatars using initials, symbolic text, and more. Ideal for personalized user representations with rich customization."
+version: 0.0.2
 homepage: https://github.com/hashimsaffarini/User_Avatar_Generator.git
 
 environment:
@@ -16,7 +16,7 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
-# Flutter assets
+
 flutter:
   assets:
     - lib/assets/images/

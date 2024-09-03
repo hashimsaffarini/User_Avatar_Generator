@@ -1,3 +1,7 @@
+## 0.0.2
+
+* Fixed bugs about description and github repo screenshot
+
 ## 0.0.1
 
 * Initial release of **User Avatar Generator**.
