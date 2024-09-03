@@ -6,7 +6,7 @@
 
 The **User Avatar Generator** package allows you to efficiently create avatar text tailored to your needs, such as generating initials, abbreviations, or symbolic representations. This ensures that user profiles in your Flutter applications are professional and meaningful with minimal effort.
 
-## Features
+## 🎯 Features
 - `Generate avatar text` using initials, uppercase letters, or custom symbols and numbers.
 - `Customizable avatars` with different shapes, sizes, and borders.
 - `Gradient backgrounds` with both predefined and custom options.
@@ -14,7 +14,16 @@ The **User Avatar Generator** package allows you to efficiently create avatar te
 - `Animated transitions` for smooth visual effects.
 - `Support for flexible` background images or gradient backgrounds.
 
-## ScreenShot
+### 🔠 Text Generation Methods
+- **Initials Generation (`initials`)**: Extracts the first letter of each word in the input text (e.g., "John Doe" becomes "JD"). This is done by splitting the input text by spaces, taking the first character of each word, and joining them together. The result can be limited to a specific number of characters and converted to uppercase or lowercase based on the provided settings.
+
+- **Uppercase Letters (`uppercaseOnly`)**: Filters the input text to only include uppercase letters. This can be useful for creating avatars that display acronyms or similar text.
+
+- **First and Last Letters (`firstAndLast`)**: Combines the first letter of the first word and the first letter of the last word in the input text (e.g., "John Doe" becomes "JD"). This approach is particularly useful for creating monograms.
+
+- **Symbols and Numbers Transformation (`withSymbols`)**: This method replaces certain letters and common words with numbers and symbols to create a more stylized or compact representation of the text. For example, "For You" might become "4U". This transformation is driven by a predefined mapping of letters and words to their symbolic equivalents.
+
+## 📸 ScreenShot
 
 ![Simulator Screenshot - iPhone 15 Pro Max - 2024-09-03 at 15 59 35](https://github.com/user-attachments/assets/df7aca57-d2c1-44de-a1aa-026fb02b04cb)
 
@@ -49,22 +58,13 @@ missing a feature, please raise a ticket on Github and I'll look into it.
 Pull requests are also welcome.
 
 ## ❤️ Support
-
 #### **Hashim Saffarini**
-
-<p align="center">
-  <a href="https://linkedin.com/in/hashim-saffarini/" target="_blank">
-    <img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" alt="LinkedIn" width="50" height="50">
-  </a>
-  <a href="https://facebook.com/hashim.saffarini.3/" target="_blank">
-    <img src="https://github.com/aritraroy/social-icons/blob/master/facebook-icon.png?raw=true" alt="Facebook" width="50" height="50">
-  </a>
-  <a href="https://instagram.com/hashim.saffarini1/" target="_blank">
-    <img src="https://github.com/aritraroy/social-icons/blob/master/instagram-icon.png?raw=true" alt="Instagram" width="50" height="50">
-  </a>
+<p>
+<a href="https://linkedin.com/in/hashim-saffarini/"><img src="https://github.com/aritraroy/social-icons/blob/master/linkedin-icon.png?raw=true" width="60"></a>
+<a href="https://facebook.com/hashim.saffarini.3/"><img src="https://github.com/aritraroy/social-icons/blob/master/facebook-icon.png?raw=true" width="60"></a>
+<a href="https://instagram.com/hashim.saffarini1/"><img src="https://github.com/aritraroy/social-icons/blob/master/instagram-icon.png?raw=true" width="60"></a>
 </p>
 
-<p align="center">If you find this package helpful, consider following me on social media for more updates and contributions.</p>
-
+If you like this package, consider giving it a ⭐️ on [GitHub](https://github.com/HashimSaffarini/user_avatar_generator)!
 
 
