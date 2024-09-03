@@ -25,7 +25,7 @@ The **User Avatar Generator** package allows you to efficiently create avatar te
 
 ## 📸 ScreenShot
 
-<img src="https://github.com/hashimsaffarini/User_Avatar_Generator/blob/main/lib/assets/images/screen.png" width="400">
+<img src="https://raw.githubusercontent.com/hashimsaffarini/User_Avatar_Generator/main/lib/assets/images/screen.png" width="400">
 
 ## 📦 Installation
 
